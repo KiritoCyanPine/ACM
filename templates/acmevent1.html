@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>NSRIT Student Chapter</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="{% static 'assets/favicon.ico' %}" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="{% static 'js/fontawesome.js' %}" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="{% static 'css/monstratt.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'css/Lato.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    <style media="screen">
+      .BLURR-IMG{
+        width: 100%;
+        filter: blur(5px);
+        position: absolute;
+        left: 0px;
+      }
+      .BLURR-IMG-A{
+        width: 100%;
+        position: relative;
+      }
+    </style>
+</head>
+    <body id="page-top">
+        <!-- Navigation-->
+        {% include '_navigation.html' %}
+
+
+        <!-- Masthead-->
+        <div class="masthead container text-white card" id="header" style="color:black;">
+          <!-- HEADER FOR THE CHAPTER NAME -->
+            <div class="container bg-light rounded col d-flex align-items-center row" style="height:20vh;overflow:hidden;">
+              <div class="col-sm-3 text-center bg-light rounded" style="width:15%;">
+                <img class="py-2" src="{% static 'assets\img\acm-logo.png'%}" style="border:2px solid black;border-radius:100%;width:125px;height:125px;" alt="">
+              </div>
+              <div class="col-sm-8 text-center">
+                <h1 class="text-dark">{{event.name}}</h1>
+                <h6 class="text-dark">{{event.summary}}</h6>
+              </div>
+            </div>
+
+         <!-- CONTENT = TIMELINE + EVENTS -->
+           <div class="container rounded py-3 d-flex justify-content-end" style="">
+              <!-- MAIN EVENT PAGE FOR THE STUFF-->
+               <div class="col-11 mx-1 text-dark container py-3 row d-flex justify-content-start">
+                 <!-- ONE MODAL BLUEPRINT -->
+                 {% for pic in photos %}
+                  <button class="card border-dark col-3 my-1 mx-1" style="width: 15.5rem;height: 15.5rem; border-radius:3px; overflow:hidden;align-items: center;justify-content: center;" type="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop{{pic.id}}">
+                      <img src="{{pic.image.url}}" class="card-img-top" alt="..." style="transform:scale(2);">
+                  </button>
+
+                  <div class="modal fade" id="staticBackdrop{{pic.id}}" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                          <div class="modal-header d-flex">
+                            <button type="button" class="btn btn-secondary align-right" data-bs-dismiss="modal" style="right:20px;">X</button>
+                          </div>
+                          <img src="{{pic.image.url}}" class="card-img-top" alt="..." style="width:100%;">
+                          {% if pic.desc %}
+                            <div class="modal-body">
+                              {{pic.desc}}
+                            </div>
+                          {% endif %}
+                          <div class="modal-footer">
+                            <a href="{{pic.image.url}}" class="btn btn-secondary" download>Download</a>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                  {% endfor %}
+                  <!--MODAL BLUEPRINT END-->
+               </div>
+
+           </div>
+
+
+
+
+        </div>
+
+        <!-- Portfolio Section-->
+
+        <br><br><br>
+        <!-- About Section-->
+
+        <!-- Contact Section-->
+
+        <!-- Footer-->
+        {% include "_footer.html" %}
+
+        <!-- Bootstrap core JS-->
+        <script src="{% static 'js/bootstrap.js' %}"></script>
+        <!-- Core theme JS-->
+        <script src="{% static 'js/scripts.js' %}"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="{% static 'js/bootstrapforms.js' %}"></script>
+    </body>
+</html>
