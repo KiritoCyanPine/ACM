@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-s8ht4gs)_^goyc!w6jjd1i=7j9*-l=0!6eg1tmf8f-skr@o5e4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost','127.0.0.1']
+ALLOWED_HOSTS = ['localhost','127.0.0.1','https://nsrit-acm-webapp.herokuapp.com/']
 
 
 # Application definition
