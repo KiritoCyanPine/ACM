@@ -26,4 +26,6 @@ urlpatterns = [
     path('', eventhosted.views.mainpage, name="mainpage"),
     path('acm/',eventhosted.views.eventpage, name="alleventpage"),
     path('acm/<int:event_id>',eventhosted.views.acmevent, name="eventpage"),
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}),
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
