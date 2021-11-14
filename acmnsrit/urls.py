@@ -23,6 +23,10 @@ from django.conf.urls import url
 import eventhosted.views
 
 
+admin.site.site_header = "NSRIT ACM"
+admin.site.site_title = "Welcome to NSRIT ACM indexing"
+admin.site.index_title = "Manage Events"
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', eventhosted.views.mainpage, name="mainpage"),
